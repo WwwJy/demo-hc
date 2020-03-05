@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mycat:server SYSTEM "server.dtd">
+<mycat:server xmlns:mycat="http://io.mycat/">
+	<!--MyCat 的系统配置-->
+	<system>
+		<!--mycat连接的端口8066和管理端口9066-->
+		<property name="serverPort">8066</property>
+		<property name="managerPort">9066</property>
+
+		<property name="useSqlStat">0</property>
+		<property name="useGlobleTableCheck">0</property>
+		<property name="sequnceHandlerType">2</property>
+		<property name="processorBufferPoolType">0</property>
+		<property name="handleDistributedTransactions">0</property>
+		<property name="useOffHeapForMerge">1</property>
+		<property name="memoryPageSize">1m</property>
+		<property name="spillsFileBufferSize">1k</property>
+		<property name="useStreamOutput">0</property>
+		<property name="systemReserveMemorySize">384m</property>
+		<property name="useZKSwitch">true</property>
+	</system>
+
+	<user name="user1">
+		<property name="password">123456</property>
+		<property name="schemas">MESSAGEDB</property>
+		<!--当整体connection达到多少时，开始降级处理(拒绝连接)-->
+		<property name="benchmark">5000</property>
+		<!--对库中的table进行精细化的DML权限控制，check=false不检查-->
+		<!--<privileges check="false"></privileges>-->
+	</user>
+</mycat:server>

@@ -1,0 +1,20 @@
+server:
+  port: 8581
+dubbo:
+  application:
+    name: user-service-provider
+  registry:
+    address: 172.19.155.20:2181
+    protocol: zookeeper
+  protocol:
+    name: dubbo
+    port: 20880
+  monitor:
+    protocol: registry
+spring:
+  rabbitmq:
+    port: 5672
+    host: 192.168.10.100
+    username: guest
+    password: guest
+    virtual-host: mycat
