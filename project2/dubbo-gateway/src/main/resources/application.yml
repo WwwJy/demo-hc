@@ -1,0 +1,10 @@
+server:
+  port: 8582
+dubbo:
+  application:
+    name: demo-client
+  registry:
+    address: 172.19.155.20:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
