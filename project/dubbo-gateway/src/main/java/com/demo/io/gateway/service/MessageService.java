@@ -16,12 +16,13 @@ public class MessageService {
     MessageDataService messageDataService;
 
     public Long sendMessage(){
+        UniqueNoUtil snow = UniqueNoUtil.getSingleton();
         IMessage m = new IMessage();
-        m.setMessageId(UniqueNoUtil.createUniqueNo());
+        m.setMessageId(snow.nextId());
         m.setContent("测试内容测试内容测试内容");
         m.setFromUser(UUID.randomUUID().toString());
         m.setToUser(UUID.randomUUID().toString());
-        m.setSendTime(new Date(System.currentTimeMillis()));
+        m.setSendTime(new Date());
         m.setRemark("");
         return messageDataService.sendMessage(m);
     }
